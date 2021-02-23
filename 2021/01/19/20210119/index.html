@@ -28,7 +28,7 @@
 <meta property="og:description" content="前言众所周知，某刘姓同学是以后是不会搞人 工 智 障的，这辈子都不会搞的。那他打算搞啥呢？他打算搞系统。因此，他就得熟悉计算机的构造。体系结构是搞系统的人不能不熟悉的。下学期就要学体系结构了，刘某决定寒假看这本《计算机体系结构基础》，有个大概的了解。 内容概览这次笔记涵盖书的序和第1章，笔记主要是重要内容摘录和理解。 序胡老说：“……其间接触了很多从各高校计算机专业毕业的学生，发现他们在大学时主要">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-01-19T12:23:54.000Z">
-<meta property="article:modified_time" content="2021-01-22T06:46:50.971Z">
+<meta property="article:modified_time" content="2021-02-23T11:52:03.778Z">
 <meta property="article:author" content="Nicolas Liu">
 <meta property="article:tag" content="Notes">
 <meta name="twitter:card" content="summary">
@@ -342,7 +342,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-22 14:46:50" itemprop="dateModified" datetime="2021-01-22T14:46:50+08:00">2021-01-22</time>
+                <time title="Modified: 2021-02-23 19:52:03" itemprop="dateModified" datetime="2021-02-23T19:52:03+08:00">2021-02-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -383,7 +383,16 @@ mjx-container[display="true"] + br {
 <h3 id="功耗障碍"><a href="#功耗障碍" class="headerlink" title="功耗障碍"></a>功耗障碍</h3><p>晶体管数目的增加以及主频的提高使得功耗问题越来越突出。以Intel放弃4GHz以上的Pentium IV项目为标值，功耗问题成为导致处理器主频难以进一步提高的直接因素。在移动计算领域，功耗更是压倒一切的指标。因此降低功耗十分重要。CPU设计从追求运算速度核性价比转为追求性能功耗比。</p>
 <p>由于晶体管的特性，0.13μm工艺以后工作电压不随着工艺的进步而降低，加上频率的提高，导致功耗密度随着集成度的增加而增加。另外纳米级工艺的漏电功耗大大增加，在65nm工艺的处理器中漏电功耗已经占了总功耗的30%。这些都对低功耗设计提出了挑战。</p>
 <h3 id="带宽障碍"><a href="#带宽障碍" class="headerlink" title="带宽障碍"></a>带宽障碍</h3><p>处理器是很快，但是处理器所需要的数据得从存储器来，存储器的速度提升很慢，而且现在的速度远低于CPU。通过Cache可以解决速度不匹配问题，但不能有效解决访存带宽不足的问题。现在采用高速总线来提高处理器的带宽，但仍有问题要解决。</p>
-<h2 id="体系结构设计的基本原则"><a href="#体系结构设计的基本原则" class="headerlink" title="体系结构设计的基本原则"></a>体系结构设计的基本原则</h2><h3 id="平衡性"><a href="#平衡性" class="headerlink" title="平衡性"></a>平衡性</h3><p>短板效应告诉我们，一个结构最终体现出的性能受限于其瓶颈部分。</p>
+<h2 id="体系结构设计的基本原则"><a href="#体系结构设计的基本原则" class="headerlink" title="体系结构设计的基本原则"></a>体系结构设计的基本原则</h2><h3 id="平衡性"><a href="#平衡性" class="headerlink" title="平衡性"></a>平衡性</h3><p>短板效应告诉我们，一个结构最终体现出的性能受限于其瓶颈部分。计算机是个复杂系统，影响性能的因素很多。例如，一台个人计算机使用起来比较卡顿，一般人会觉得主要是由于CPU性能不够，实际上真正引起性能卡顿的可能是内存带宽、硬盘或网络带宽、GPU性能，或者是CPU和GPU之间数据传输不顺，等等。</p>
+<p>通过队典型CPU指标的分析，可以看出，CPU运算速度和访存带宽差距越来越大，带宽已经成为CPU的重要瓶颈。另外，计算机程序中有些程序是不能并行化的，程序的并行加速比，最终受限于不能被并行化的串行部分。一个人一小时可以做好一顿饭，但这并不意味着60个人一起做就能用一分钟做好饭，因为做饭的过程一些因素是不可被并行化的。</p>
+<p>结构设计要统筹兼顾，抓住主要因素的同时不要忽略次要因素，否则当主要的瓶颈问题解决以后，原来不是瓶颈的次要因素可能成为瓶颈。就像修马路，在一个本来堵车的路口修座高架桥，这个路口不堵车了，但与这个路口相邻的路口可能堵起来。</p>
+<h3 id="局部性"><a href="#局部性" class="headerlink" title="局部性"></a>局部性</h3><p>局部性是计算机中普遍存在的一种现象。有些事件频繁发生，有些不怎么发生，因此要重点优化频繁发生的事件。访存局部性是一个典型。访存局部性包括时间局部性和空间局部性。时间局部性就是一个数据被访问后很有可能多次被访问。空间局部性就是一个数据被访问后，它邻近的数据很有可能被访问。Cache、TLB、预取都是利用访存局部性原理来提高性能的例子。</p>
+<h3 id="并行性"><a href="#并行性" class="headerlink" title="并行性"></a>并行性</h3><p>一般可以开发三种层次的并行性。</p>
+<p>第一个层次的并行性是指令级并行。指令级并行是20世纪最后20年体系结构提升性能的主要途径。指令级并行性可以在保持程序二进制兼容的前提下提高性能。指令级并行分为两种。一种是时间并行，即指令流水线；另一种是空间并行，即超标量。指令级并行的潜能基本上被完全挖掘，现在已经没有很大的进一步挖掘的空间。</p>
+<p>第二个层次的并行性是数据级并行，主要是单指令流多数据流（SIMD）的向量结构。最早的数据级并行出现在ENIAC上。20世纪六七十年代以Cray位代表的向量机十分流行。到Cray-4后，SIMD沉寂了一段时间，现在又开始恢复活力，而且用得越来越多。例如，x86架构的AVX多媒体指令可以用256位通路做四个64位的运算，或八个32位的运算。SIMD作为指令级并行的有效补充，在流媒体领域发挥重要的作用，尤其在专用处理器中应用得多。</p>
+<p>第三个层次的并行性是任务级并行。任务级并行大量存在于Internet应用中。任务级并行的代表是多核处理器以及多线程处理器，是目前计算机体系结构提高性能的主要方法。任务级并行的并行粒度较大，一个线程中包含几百条或者更多的指令。</p>
+<p>上述三种并行性在线代计算机中都存在。多核处理器运行线程级或进程级并行的程序，每个核采用多发射流水线结构，而且往往又SIMD向量部件。</p>
+<h3 id="虚拟化"><a href="#虚拟化" class="headerlink" title="虚拟化"></a>虚拟化</h3><p>虚拟化是体系结构设计者为用户提供一个界面友好的基本方法，虚拟化的本质就是在不好用的硬件和友好的用户界面之间架一座“桥梁”。例子有虚拟存储、多线程、虚拟机、流水线、多发射、Cache、Cache一致性协议。流水线和多发射是在维持串行编程模型的情况下提高了速度。用户感觉程序是在串行执行，但事实上可能同时有多条指令在流水线上执行，甚至处在后面的指令超前执行。Cache则让程序员拥有像Cache那么快、像内存那么大的存储空间，但是代价太大，现代处理器往往80%以上的晶体管都用在Cache上了。Cache一致性协议可以在分布式存储的情况下给程序员提供一个统一的编程空间，屏蔽掉存储器物理分布的细节，但程序员依然要自己解决并行编程的问题。</p>
 
     </div>
 
@@ -405,7 +414,10 @@ mjx-container[display="true"] + br {
     <a href="/2020/09/29/2020092900/" rel="prev" title="《近世代数》 | 丘维声著 | 笔记 1">
       <i class="fa fa-chevron-left"></i> 《近世代数》 | 丘维声著 | 笔记 1
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/02/23/20210223/" rel="next" title="《计算机体系结构基础》 | 胡伟武著 | 笔记 2">
+      《计算机体系结构基础》 | 胡伟武著 | 笔记 2 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -464,7 +476,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E5%AE%B9%E6%A6%82%E8%A7%88"><span class="nav-number">2.</span> <span class="nav-text">内容概览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">3.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">4.</span> <span class="nav-text">引言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E5%8F%91%E5%B1%95"><span class="nav-number">4.1.</span> <span class="nav-text">计算机体系结构的发展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#20%E4%B8%96%E7%BA%AA%E4%BA%94%E5%85%AD%E5%8D%81%E5%B9%B4%E4%BB%A3"><span class="nav-number">4.1.1.</span> <span class="nav-text">20世纪五六十年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20%E4%B8%96%E7%BA%AA%E4%B8%83%E5%85%AB%E5%8D%81%E5%B9%B4%E4%BB%A3"><span class="nav-number">4.1.2.</span> <span class="nav-text">20世纪七八十年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20%E4%B8%96%E7%BA%AA90%E5%B9%B4%E4%BB%A3"><span class="nav-number">4.1.3.</span> <span class="nav-text">20世纪90年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21%E4%B8%96%E7%BA%AA"><span class="nav-number">4.1.4.</span> <span class="nav-text">21世纪</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%8F%91%E5%B1%95%E9%9D%A2%E4%B8%B4%E7%9A%84%E9%9A%9C%E7%A2%8D"><span class="nav-number">4.2.</span> <span class="nav-text">计算机体系结构进一步发展面临的障碍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E9%9A%9C%E7%A2%8D"><span class="nav-number">4.2.1.</span> <span class="nav-text">复杂度障碍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%91%E9%9A%9C%E7%A2%8D"><span class="nav-number">4.2.2.</span> <span class="nav-text">主频障碍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9F%E8%80%97%E9%9A%9C%E7%A2%8D"><span class="nav-number">4.2.3.</span> <span class="nav-text">功耗障碍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%A6%E5%AE%BD%E9%9A%9C%E7%A2%8D"><span class="nav-number">4.2.4.</span> <span class="nav-text">带宽障碍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99"><span class="nav-number">4.3.</span> <span class="nav-text">体系结构设计的基本原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E6%80%A7"><span class="nav-number">4.3.1.</span> <span class="nav-text">平衡性</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E5%AE%B9%E6%A6%82%E8%A7%88"><span class="nav-number">2.</span> <span class="nav-text">内容概览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F"><span class="nav-number">3.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">4.</span> <span class="nav-text">引言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E5%8F%91%E5%B1%95"><span class="nav-number">4.1.</span> <span class="nav-text">计算机体系结构的发展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#20%E4%B8%96%E7%BA%AA%E4%BA%94%E5%85%AD%E5%8D%81%E5%B9%B4%E4%BB%A3"><span class="nav-number">4.1.1.</span> <span class="nav-text">20世纪五六十年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20%E4%B8%96%E7%BA%AA%E4%B8%83%E5%85%AB%E5%8D%81%E5%B9%B4%E4%BB%A3"><span class="nav-number">4.1.2.</span> <span class="nav-text">20世纪七八十年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20%E4%B8%96%E7%BA%AA90%E5%B9%B4%E4%BB%A3"><span class="nav-number">4.1.3.</span> <span class="nav-text">20世纪90年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21%E4%B8%96%E7%BA%AA"><span class="nav-number">4.1.4.</span> <span class="nav-text">21世纪</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%8F%91%E5%B1%95%E9%9D%A2%E4%B8%B4%E7%9A%84%E9%9A%9C%E7%A2%8D"><span class="nav-number">4.2.</span> <span class="nav-text">计算机体系结构进一步发展面临的障碍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E9%9A%9C%E7%A2%8D"><span class="nav-number">4.2.1.</span> <span class="nav-text">复杂度障碍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%91%E9%9A%9C%E7%A2%8D"><span class="nav-number">4.2.2.</span> <span class="nav-text">主频障碍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9F%E8%80%97%E9%9A%9C%E7%A2%8D"><span class="nav-number">4.2.3.</span> <span class="nav-text">功耗障碍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%A6%E5%AE%BD%E9%9A%9C%E7%A2%8D"><span class="nav-number">4.2.4.</span> <span class="nav-text">带宽障碍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99"><span class="nav-number">4.3.</span> <span class="nav-text">体系结构设计的基本原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E6%80%A7"><span class="nav-number">4.3.1.</span> <span class="nav-text">平衡性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E6%80%A7"><span class="nav-number">4.3.2.</span> <span class="nav-text">局部性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8C%E6%80%A7"><span class="nav-number">4.3.3.</span> <span class="nav-text">并行性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%8C%96"><span class="nav-number">4.3.4.</span> <span class="nav-text">虚拟化</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -478,7 +490,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
