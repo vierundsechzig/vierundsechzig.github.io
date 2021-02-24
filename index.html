@@ -306,7 +306,7 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://nicolasliu.info/2021/02/23/20210223/">
+    <link itemprop="mainEntityOfPage" href="https://nicolasliu.info/2021/02/24/20210224/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -320,7 +320,7 @@ mjx-container[display="true"] + br {
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/23/20210223/" class="post-title-link" itemprop="url">《计算机体系结构基础》 | 胡伟武著 | 笔记 2</a>
+            <a href="/2021/02/24/20210224/" class="post-title-link" itemprop="url">《计算机体系结构基础》 | 胡伟武著 | 笔记 2</a>
         </h2>
 
         <div class="post-meta">
@@ -331,7 +331,7 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-02-23 19:52:39 / Modified: 20:40:20" itemprop="dateCreated datePublished" datetime="2021-02-23T19:52:39+08:00">2021-02-23</time>
+              <time title="Created: 2021-02-24 19:46:00 / Modified: 20:02:07" itemprop="dateCreated datePublished" datetime="2021-02-24T19:46:00+08:00">2021-02-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -358,7 +358,90 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="内容概览"><a href="#内容概览" class="headerlink" title="内容概览"></a>内容概览</h1><p>本笔记涵盖书的第2章和第3章。</p>
+          <h1 id="内容概览"><a href="#内容概览" class="headerlink" title="内容概览"></a>内容概览</h1><p>本笔记涵盖书的第3章。</p>
+<h1 id="第3章-特权指令系统"><a href="#第3章-特权指令系统" class="headerlink" title="第3章 特权指令系统"></a>第3章 特权指令系统</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在计算机系统层次结构中，应用层在操作系统层之上，只能看到和使用指令系统的一个子集，即指令系统的用户态部分。每个应用程序都有自己的寄存器、内存空间以及可执行的指令。现代计算机的指令系统在用户态子集之外还定义了特权太部分，我们称之特权指令系统。特权指令系统使得计算机变得更好用、更安全。不同指令系统的特权态部分差别较大，但就其机制而言，可以分为以下几类。</p>
+<h3 id="运行模式"><a href="#运行模式" class="headerlink" title="运行模式"></a>运行模式</h3><p>现代计算机的操作系统都实现了保护模式，设计为用户态和核心态两种运行模式。应用运行在用户态模式下，操作系统运行在核心态模式下。刚开机时，CPU初始为核心态模式，执行引导程序加载操作系统。操作系统做完一系列初始化后，控制CPU切换到用户态去执行应用程序。应用程序执行过程中，如果出现在用户态无法处理的事件，则CPU会通过异常或中断回到核心态，执行操作系统提供的服务程序。操作系统完成处理后再控制CPU返回到用户态，继续运行原来的应用程序或者调度另一个应用程序。</p>
+<h3 id="虚拟存储管理"><a href="#虚拟存储管理" class="headerlink" title="虚拟存储管理"></a>虚拟存储管理</h3><p>虚拟存储让软件运行在逻辑地址上，与真正访问的物理地址隔离。虚实地址的转换有查表转换和直接映射两种方式。应用程序主要使用查表转换的方式，不同的进程有自己独立的虚地址空间。直接映射的方式与使用物理地址差别不大，其主要目的是留给操作系统使用，因为负责虚拟存储管理的代码本身不能运行在被管理的虚地址空间。用户态应用程序无法使用直接映射的方式。</p>
+<h3 id="异常与中断处理"><a href="#异常与中断处理" class="headerlink" title="异常与中断处理"></a>异常与中断处理</h3><p>这是一种打断正常的软件执行流，切换到专门的服务程序的机制。这种机制在各种运行模式的转换中起到关键的纽带作用。</p>
+<h3 id="控制寄存器"><a href="#控制寄存器" class="headerlink" title="控制寄存器"></a>控制寄存器</h3><p>控制寄存器位于一个独立的地址空间，是支撑前面3种机制的具体实现。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nicolasliu.info/2021/02/23/20210223/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nicolas Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nicolas Liu's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/23/20210223/" class="post-title-link" itemprop="url">《计算机体系结构基础》 | 胡伟武著 | 笔记 2</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-23 19:52:39" itemprop="dateCreated datePublished" datetime="2021-02-23T19:52:39+08:00">2021-02-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-24 19:46:43" itemprop="dateModified" datetime="2021-02-24T19:46:43+08:00">2021-02-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Computer-Science/" itemprop="url" rel="index"><span itemprop="name">Computer Science</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Computer-Science/Computer-Architecture/" itemprop="url" rel="index"><span itemprop="name">Computer Architecture</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="内容概览"><a href="#内容概览" class="headerlink" title="内容概览"></a>内容概览</h1><p>本笔记涵盖书的第2章。</p>
 <h1 id="第2章-指令系统结构"><a href="#第2章-指令系统结构" class="headerlink" title="第2章 指令系统结构"></a>第2章 指令系统结构</h1><h2 id="指令系统发展过程"><a href="#指令系统发展过程" class="headerlink" title="指令系统发展过程"></a>指令系统发展过程</h2><h3 id="指令集的演变"><a href="#指令集的演变" class="headerlink" title="指令集的演变"></a>指令集的演变</h3><p>指令集可分为CISC、RISC和VLIW指令集三种。</p>
 <p>早期的CPU都采用CISC结构，如IBM的System360、Intel的8080和80806系列、Motorola的68000系列等。这与当时的时代特点有关，早期处理器设备昂贵且处理速度慢，设计者不得不加入越来越多的复杂指令来提高执行速度，部分复杂指令甚至可与高级语言中的操作直接对应。这种设计简化了软件和编译器的设计，但也显著提高了硬件的复杂性。当硬件复杂度逐渐提高时，CISC结构出现了一系列问题。大量复杂指令在实际中很少用到，典型程序中80%的指令只占指令集总指令数的20%，消耗大量精力的复杂设计只有很少的回报。同时，复杂的微代码翻译也会增加流水线设计难度，并降低频繁使用的简单指令的执行效率。</p>
 <p>RISC则采用功能简单的指令，单个指令执行周期短；使用定长指令，译码简单；访存只能通过load-store指令实现。简单化的好处是有利于提高指令级并行性。最早的RISC处理器可追溯到CDC公司1964年推出的世界上第一台超级计算机CDC6600，但RISC的设计思想并未受到小型机和微处理器设计者的重视。1975年，John Cocke在IBM公司位于约克镇的Thomas J. Watson研究中心组织研究指令系统的合理性并研制现代RISC计算机的鼻祖IBM 801，现在IBM PowerPC的主要思想就源于IBM 801.参与IBM 801项目的Patterson和Hennessy，分别回到加州大学伯克利分校和斯坦福大学，开始从事RISC-1/RISC-2项目和MIPS项目，它们分别成为SPARC处理器和MIPS处理器的前身。IBM 801的项目经理Joel Birnbaum在HP创立了PA-RISC；DEC公司在MIPS的基础上设计了Alpha处理器。广泛使用的ARM处理器也是早期RISC处理器的代表之一。</p>
@@ -368,7 +451,12 @@ mjx-container[display="true"] + br {
 <p>连续实地址：各程序所需的内存空间必须连续存放并保证不与其他长须发生冲突。会带来大量的内存碎片，并且难以管理多个程序的空间分配。</p>
 <p>段式存储管理：将内存分为多个段和节，地址组织为相对于段地址的偏移。主要应用于早期处理器中。Burroughs公司的B5000是最早使用段式存储的计算机之一。Intel从8086处理器开始使用段式存储管理，在80286之后兼容段页式，但在最新的x86-64架构中放弃了对段式管理的支持。</p>
 <p>页式虚拟存储管理将各进程的虚拟内存空间划分成若干长度相同的页，将虚拟地址和物理地址的对应关系组织成页表，并通过硬件来实现快速地址转换。现代处理器的存储管理单元大多基于页式虚拟管理，并通过TLB进行地址转换的加速。页式虚拟存储可使各进程运行在各自独立的虚拟地址空间中，并提供内存映射、公平的物理内存分配和共享虚拟内存等功能，是计算机系统发展过程中具有里程碑意义的一项技术。</p>
-<p>（To be continued）</p>
+<h3 id="运行级别的演变"><a href="#运行级别的演变" class="headerlink" title="运行级别的演变"></a>运行级别的演变</h3><p>运行级别即软件所能访问的硬件资源。运行级别经历了无管理、增加保护模式、增加调试模式、增加虚拟化支持等阶段。</p>
+<p>早期的处理器和当今的嵌入式单片机中不包含运行级别控制，所有程序都可以控制所有资源。无管理的方式在安全方面毫无保障，软件必须小心设计，确保不会互相干扰。这通常只在规模有限、封闭可控的系统中使用。</p>
+<p>现代操作系统包含保护模式，将程序分为两个权限等级：用户态和核心态。核心态具有最高权限，可以执行所有指令、访问任意空间；在用户态下，程序只能访问受限的内存空间，不允许访问外围设备。用户态程序需要使用外围设备时，需要通过系统调用提出申请，由操作系统在核心态下完成访问。保护模式需要硬件支持，如x86架构包含Ring0~Ring3四个权限级别，MIPS处理器定义了user/kernel两个权限级别。</p>
+<p>为了方便软硬件调试，许多处理器增加了调试模式和接口，如ARM的JTAG、MIPS的EJTAG。</p>
+<p>虚拟化技术使得一台物理主机可以支撑多台虚拟机，运行各自的系统。虚拟机不绑定底层硬件，可看作一个软件进程，因而部署起来非常灵活。Intel和AMD分别由哦硬件辅助虚拟机的扩展VT和SVM。MIPS引入了客户模式。</p>
+<h1 id="注"><a href="#注" class="headerlink" title="注"></a>注</h1><p>书的内容远比我的笔记多，但是我懒<span class="github-emoji" alias="sleepy" style fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62a.png?v8">😪</span>，没做笔记，所以就只有这一节了。</p>
 
       
     </div>
@@ -896,7 +984,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
