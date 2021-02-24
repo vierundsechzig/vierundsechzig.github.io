@@ -1,42 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>《计算机体系结构基础》 | 胡伟武著 | 笔记 1</title>
-    <url>/2021/01/19/20210119/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>众所周知，某刘姓同学是以后是不会搞人 工 智 障的，这辈子都不会搞的。那他打算搞啥呢？他打算搞系统。因此，他就得熟悉计算机的构造。体系结构是搞系统的人不能不熟悉的。下学期就要学体系结构了，刘某决定寒假看这本《计算机体系结构基础》，有个大概的了解。</p>
-<h1 id="内容概览"><a href="#内容概览" class="headerlink" title="内容概览"></a>内容概览</h1><p>这次笔记涵盖书的序和第1章，笔记主要是重要内容摘录和理解。</p>
-<h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>胡老说：“……其间接触了很多从各高校计算机专业毕业的学生，发现他们在大学时主要练就了诸如编程等‘怎么用计算机’的本领，对操作系统和体系结构这种“如何造计算机”的课程，或者没有系统学习，或者只学到一些概念。比如对于‘从打开电源到计算机启动再到登陆界面’或者‘从按一下空格键到翻一页PPT’这样的过程，如果问及计算机系统内部包括CPU、南北桥、GPU在内的硬件以及包括操作系统和应用程序在内的软件是如何协同工作的，计算机专业毕业的学生几乎没有人说得明白。</p>
-<p>“我1986年到中国科学技术大学计算机系学习的时候，教授我计算机体系结构课程的老师都是亲自造过计算机的，他们能够讲明白计算机软硬件工作的原理性过程。改革开放以来，我国主要使用国外的CPU和操作系统‘攒’计算机，学术界也几乎不从事CPU和操作系统这种核心技术的研究工作，全国两千多个计算机专业主要使用国外教材或者翻译的国外教材教授学生‘如何造计算机’。由于计算机体系结构和操作系统都是工程性很强的学科，而任课老师却没有机会参与设计CPU和操作系统，因此教学生的时候难免照本宣科，使学生只学到一些概念，难以对计算机的软硬件工作过程融会贯通。”</p>
-<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><h2 id="计算机体系结构的发展"><a href="#计算机体系结构的发展" class="headerlink" title="计算机体系结构的发展"></a>计算机体系结构的发展</h2><h3 id="20世纪五六十年代"><a href="#20世纪五六十年代" class="headerlink" title="20世纪五六十年代"></a>20世纪五六十年代</h3><p>工艺技术的限制，计算机都很简单。计算机体系结构主要研究如何做运算，如先行进位加法器、Booth补码乘法算法、Wallace树等。现在的主要矛盾不在运算部件，运算部件只占CPU中硅面积的很小一部分。</p>
-<h3 id="20世纪七八十年代"><a href="#20世纪七八十年代" class="headerlink" title="20世纪七八十年代"></a>20世纪七八十年代</h3><p>以RISC的兴起为标志，ISA成为计算机体系结构的研究重点。</p>
-<h3 id="20世纪90年代"><a href="#20世纪90年代" class="headerlink" title="20世纪90年代"></a>20世纪90年代</h3><p>CPU、存储系统、I/O系统和多处理器也包括在内，研究的范围大大地扩展了。</p>
-<h3 id="21世纪"><a href="#21世纪" class="headerlink" title="21世纪"></a>21世纪</h3><p>网络就是计算机，计算机体系结构向上突破了软硬件界面，需要考虑软硬件的紧密协同；向下突破了逻辑设计和工艺实现地界面，需要从晶体管地角度考虑结构设计。</p>
-<h2 id="计算机体系结构进一步发展面临的障碍"><a href="#计算机体系结构进一步发展面临的障碍" class="headerlink" title="计算机体系结构进一步发展面临的障碍"></a>计算机体系结构进一步发展面临的障碍</h2><h3 id="复杂度障碍"><a href="#复杂度障碍" class="headerlink" title="复杂度障碍"></a>复杂度障碍</h3><p>可用的晶体管更多、更小了，设计复杂度也大幅增加了，设计能力远不及复杂度，验证能力更是如此。另外，晶体管尺寸缩小到纳米级，一些电磁特性给物理设计带来了巨大的挑战，如信号串扰、参数漂移等。总是，晶体管更多了，也更“难用”了。</p>
-<p>体系结构变得复杂了，如流水线、动态调度、高速缓存、向量机、超标量、超长指令字等技术使得现代处理器结构变得十分复杂。增加处理器核或是进一步细分流水线的方式已很难带来显著的性能提升，需要探索新的结构技术在简化结构设计的前提下充分利用摩尔定律提供的晶体管，以进一步提高处理器的功能和性能。</p>
-<h3 id="主频障碍"><a href="#主频障碍" class="headerlink" title="主频障碍"></a>主频障碍</h3><p>目前的高主频处理器中，指令流水线的划分已经很细，每级流水线的延迟已经很小，难以再降低。主频难以再提高。</p>
-<h3 id="功耗障碍"><a href="#功耗障碍" class="headerlink" title="功耗障碍"></a>功耗障碍</h3><p>晶体管数目的增加以及主频的提高使得功耗问题越来越突出。以Intel放弃4GHz以上的Pentium IV项目为标值，功耗问题成为导致处理器主频难以进一步提高的直接因素。在移动计算领域，功耗更是压倒一切的指标。因此降低功耗十分重要。CPU设计从追求运算速度核性价比转为追求性能功耗比。</p>
-<p>由于晶体管的特性，0.13μm工艺以后工作电压不随着工艺的进步而降低，加上频率的提高，导致功耗密度随着集成度的增加而增加。另外纳米级工艺的漏电功耗大大增加，在65nm工艺的处理器中漏电功耗已经占了总功耗的30%。这些都对低功耗设计提出了挑战。</p>
-<h3 id="带宽障碍"><a href="#带宽障碍" class="headerlink" title="带宽障碍"></a>带宽障碍</h3><p>处理器是很快，但是处理器所需要的数据得从存储器来，存储器的速度提升很慢，而且现在的速度远低于CPU。通过Cache可以解决速度不匹配问题，但不能有效解决访存带宽不足的问题。现在采用高速总线来提高处理器的带宽，但仍有问题要解决。</p>
-<h2 id="体系结构设计的基本原则"><a href="#体系结构设计的基本原则" class="headerlink" title="体系结构设计的基本原则"></a>体系结构设计的基本原则</h2><h3 id="平衡性"><a href="#平衡性" class="headerlink" title="平衡性"></a>平衡性</h3><p>短板效应告诉我们，一个结构最终体现出的性能受限于其瓶颈部分。计算机是个复杂系统，影响性能的因素很多。例如，一台个人计算机使用起来比较卡顿，一般人会觉得主要是由于CPU性能不够，实际上真正引起性能卡顿的可能是内存带宽、硬盘或网络带宽、GPU性能，或者是CPU和GPU之间数据传输不顺，等等。</p>
-<p>通过队典型CPU指标的分析，可以看出，CPU运算速度和访存带宽差距越来越大，带宽已经成为CPU的重要瓶颈。另外，计算机程序中有些程序是不能并行化的，程序的并行加速比，最终受限于不能被并行化的串行部分。一个人一小时可以做好一顿饭，但这并不意味着60个人一起做就能用一分钟做好饭，因为做饭的过程一些因素是不可被并行化的。</p>
-<p>结构设计要统筹兼顾，抓住主要因素的同时不要忽略次要因素，否则当主要的瓶颈问题解决以后，原来不是瓶颈的次要因素可能成为瓶颈。就像修马路，在一个本来堵车的路口修座高架桥，这个路口不堵车了，但与这个路口相邻的路口可能堵起来。</p>
-<h3 id="局部性"><a href="#局部性" class="headerlink" title="局部性"></a>局部性</h3><p>局部性是计算机中普遍存在的一种现象。有些事件频繁发生，有些不怎么发生，因此要重点优化频繁发生的事件。访存局部性是一个典型。访存局部性包括时间局部性和空间局部性。时间局部性就是一个数据被访问后很有可能多次被访问。空间局部性就是一个数据被访问后，它邻近的数据很有可能被访问。Cache、TLB、预取都是利用访存局部性原理来提高性能的例子。</p>
-<h3 id="并行性"><a href="#并行性" class="headerlink" title="并行性"></a>并行性</h3><p>一般可以开发三种层次的并行性。</p>
-<p>第一个层次的并行性是指令级并行。指令级并行是20世纪最后20年体系结构提升性能的主要途径。指令级并行性可以在保持程序二进制兼容的前提下提高性能。指令级并行分为两种。一种是时间并行，即指令流水线；另一种是空间并行，即超标量。指令级并行的潜能基本上被完全挖掘，现在已经没有很大的进一步挖掘的空间。</p>
-<p>第二个层次的并行性是数据级并行，主要是单指令流多数据流（SIMD）的向量结构。最早的数据级并行出现在ENIAC上。20世纪六七十年代以Cray位代表的向量机十分流行。到Cray-4后，SIMD沉寂了一段时间，现在又开始恢复活力，而且用得越来越多。例如，x86架构的AVX多媒体指令可以用256位通路做四个64位的运算，或八个32位的运算。SIMD作为指令级并行的有效补充，在流媒体领域发挥重要的作用，尤其在专用处理器中应用得多。</p>
-<p>第三个层次的并行性是任务级并行。任务级并行大量存在于Internet应用中。任务级并行的代表是多核处理器以及多线程处理器，是目前计算机体系结构提高性能的主要方法。任务级并行的并行粒度较大，一个线程中包含几百条或者更多的指令。</p>
-<p>上述三种并行性在线代计算机中都存在。多核处理器运行线程级或进程级并行的程序，每个核采用多发射流水线结构，而且往往又SIMD向量部件。</p>
-<h3 id="虚拟化"><a href="#虚拟化" class="headerlink" title="虚拟化"></a>虚拟化</h3><p>虚拟化是体系结构设计者为用户提供一个界面友好的基本方法，虚拟化的本质就是在不好用的硬件和友好的用户界面之间架一座“桥梁”。例子有虚拟存储、多线程、虚拟机、流水线、多发射、Cache、Cache一致性协议。流水线和多发射是在维持串行编程模型的情况下提高了速度。用户感觉程序是在串行执行，但事实上可能同时有多条指令在流水线上执行，甚至处在后面的指令超前执行。Cache则让程序员拥有像Cache那么快、像内存那么大的存储空间，但是代价太大，现代处理器往往80%以上的晶体管都用在Cache上了。Cache一致性协议可以在分布式存储的情况下给程序员提供一个统一的编程空间，屏蔽掉存储器物理分布的细节，但程序员依然要自己解决并行编程的问题。</p>
-]]></content>
-      <categories>
-        <category>Computer Science</category>
-        <category>Computer Architecture</category>
-      </categories>
-      <tags>
-        <tag>Notes</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>《近世代数》 | 丘维声著 | 笔记 1</title>
     <url>/2020/09/29/2020092900/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Artin 所著的 <em>Algebra</em> 内容太多了，想了解的 Galois 理论还在最后一章，加上是英文写的，还是特别抽象的东西，看了不久实在顶不住了，遂放弃。后面去图书馆找替代的教材，发现丘维声所著内容不多，且讲到了代数方程可解性问题，排版比较好，所以打算啃这本书。</p>
@@ -78,7 +42,7 @@
 <p>现代操作系统包含保护模式，将程序分为两个权限等级：用户态和核心态。核心态具有最高权限，可以执行所有指令、访问任意空间；在用户态下，程序只能访问受限的内存空间，不允许访问外围设备。用户态程序需要使用外围设备时，需要通过系统调用提出申请，由操作系统在核心态下完成访问。保护模式需要硬件支持，如x86架构包含Ring0~Ring3四个权限级别，MIPS处理器定义了user/kernel两个权限级别。</p>
 <p>为了方便软硬件调试，许多处理器增加了调试模式和接口，如ARM的JTAG、MIPS的EJTAG。</p>
 <p>虚拟化技术使得一台物理主机可以支撑多台虚拟机，运行各自的系统。虚拟机不绑定底层硬件，可看作一个软件进程，因而部署起来非常灵活。Intel和AMD分别由哦硬件辅助虚拟机的扩展VT和SVM。MIPS引入了客户模式。</p>
-<h1 id="注"><a href="#注" class="headerlink" title="注"></a>注</h1><p>书的内容远比我的笔记多，但是我懒<span class="github-emoji" alias="sleepy" style fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62a.png?v8">😪</span>，没做笔记，所以就只有这一节了。</p>
+<h1 id="注"><a href="#注" class="headerlink" title="注"></a>注</h1><p>书的内容远比我的笔记多，但是我懒<span class="github-emoji" alias="sleepy" style fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62a.png?v8">😪</span>，没做笔记，所以就只有这一节了。后面写文章也差不多，不再赘述。</p>
 ]]></content>
       <categories>
         <category>Computer Science</category>
@@ -89,14 +53,32 @@
       </tags>
   </entry>
   <entry>
-    <title>《计算机体系结构基础》 | 胡伟武著 | 笔记 3</title>
-    <url>/2021/02/24/20210224/</url>
-    <content><![CDATA[<h1 id="内容概览"><a href="#内容概览" class="headerlink" title="内容概览"></a>内容概览</h1><p>本笔记涵盖书的第3章。</p>
-<h1 id="第3章-特权指令系统"><a href="#第3章-特权指令系统" class="headerlink" title="第3章 特权指令系统"></a>第3章 特权指令系统</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在计算机系统层次结构中，应用层在操作系统层之上，只能看到和使用指令系统的一个子集，即指令系统的用户态部分。每个应用程序都有自己的寄存器、内存空间以及可执行的指令。现代计算机的指令系统在用户态子集之外还定义了特权太部分，我们称之特权指令系统。特权指令系统使得计算机变得更好用、更安全。不同指令系统的特权态部分差别较大，但就其机制而言，可以分为以下几类。</p>
-<h3 id="运行模式"><a href="#运行模式" class="headerlink" title="运行模式"></a>运行模式</h3><p>现代计算机的操作系统都实现了保护模式，设计为用户态和核心态两种运行模式。应用运行在用户态模式下，操作系统运行在核心态模式下。刚开机时，CPU初始为核心态模式，执行引导程序加载操作系统。操作系统做完一系列初始化后，控制CPU切换到用户态去执行应用程序。应用程序执行过程中，如果出现在用户态无法处理的事件，则CPU会通过异常或中断回到核心态，执行操作系统提供的服务程序。操作系统完成处理后再控制CPU返回到用户态，继续运行原来的应用程序或者调度另一个应用程序。</p>
-<h3 id="虚拟存储管理"><a href="#虚拟存储管理" class="headerlink" title="虚拟存储管理"></a>虚拟存储管理</h3><p>虚拟存储让软件运行在逻辑地址上，与真正访问的物理地址隔离。虚实地址的转换有查表转换和直接映射两种方式。应用程序主要使用查表转换的方式，不同的进程有自己独立的虚地址空间。直接映射的方式与使用物理地址差别不大，其主要目的是留给操作系统使用，因为负责虚拟存储管理的代码本身不能运行在被管理的虚地址空间。用户态应用程序无法使用直接映射的方式。</p>
-<h3 id="异常与中断处理"><a href="#异常与中断处理" class="headerlink" title="异常与中断处理"></a>异常与中断处理</h3><p>这是一种打断正常的软件执行流，切换到专门的服务程序的机制。这种机制在各种运行模式的转换中起到关键的纽带作用。</p>
-<h3 id="控制寄存器"><a href="#控制寄存器" class="headerlink" title="控制寄存器"></a>控制寄存器</h3><p>控制寄存器位于一个独立的地址空间，是支撑前面3种机制的具体实现。</p>
+    <title>《计算机体系结构基础》 | 胡伟武著 | 笔记 1</title>
+    <url>/2021/01/19/20210119/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>众所周知，某刘姓同学是以后是不会搞人 工 智 障的，这辈子都不会搞的。那他打算搞啥呢？他打算搞系统。因此，他就得熟悉计算机的构造。体系结构是搞系统的人不能不熟悉的。下学期就要学体系结构了，刘某决定寒假看这本《计算机体系结构基础》，有个大概的了解。</p>
+<h1 id="内容概览"><a href="#内容概览" class="headerlink" title="内容概览"></a>内容概览</h1><p>这次笔记涵盖书的序和第1章，笔记主要是重要内容摘录和理解。</p>
+<h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>胡老说：“……其间接触了很多从各高校计算机专业毕业的学生，发现他们在大学时主要练就了诸如编程等‘怎么用计算机’的本领，对操作系统和体系结构这种“如何造计算机”的课程，或者没有系统学习，或者只学到一些概念。比如对于‘从打开电源到计算机启动再到登陆界面’或者‘从按一下空格键到翻一页PPT’这样的过程，如果问及计算机系统内部包括CPU、南北桥、GPU在内的硬件以及包括操作系统和应用程序在内的软件是如何协同工作的，计算机专业毕业的学生几乎没有人说得明白。</p>
+<p>“我1986年到中国科学技术大学计算机系学习的时候，教授我计算机体系结构课程的老师都是亲自造过计算机的，他们能够讲明白计算机软硬件工作的原理性过程。改革开放以来，我国主要使用国外的CPU和操作系统‘攒’计算机，学术界也几乎不从事CPU和操作系统这种核心技术的研究工作，全国两千多个计算机专业主要使用国外教材或者翻译的国外教材教授学生‘如何造计算机’。由于计算机体系结构和操作系统都是工程性很强的学科，而任课老师却没有机会参与设计CPU和操作系统，因此教学生的时候难免照本宣科，使学生只学到一些概念，难以对计算机的软硬件工作过程融会贯通。”</p>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><h2 id="计算机体系结构的发展"><a href="#计算机体系结构的发展" class="headerlink" title="计算机体系结构的发展"></a>计算机体系结构的发展</h2><h3 id="20世纪五六十年代"><a href="#20世纪五六十年代" class="headerlink" title="20世纪五六十年代"></a>20世纪五六十年代</h3><p>工艺技术的限制，计算机都很简单。计算机体系结构主要研究如何做运算，如先行进位加法器、Booth补码乘法算法、Wallace树等。现在的主要矛盾不在运算部件，运算部件只占CPU中硅面积的很小一部分。</p>
+<h3 id="20世纪七八十年代"><a href="#20世纪七八十年代" class="headerlink" title="20世纪七八十年代"></a>20世纪七八十年代</h3><p>以RISC的兴起为标志，ISA成为计算机体系结构的研究重点。</p>
+<h3 id="20世纪90年代"><a href="#20世纪90年代" class="headerlink" title="20世纪90年代"></a>20世纪90年代</h3><p>CPU、存储系统、I/O系统和多处理器也包括在内，研究的范围大大地扩展了。</p>
+<h3 id="21世纪"><a href="#21世纪" class="headerlink" title="21世纪"></a>21世纪</h3><p>网络就是计算机，计算机体系结构向上突破了软硬件界面，需要考虑软硬件的紧密协同；向下突破了逻辑设计和工艺实现地界面，需要从晶体管地角度考虑结构设计。</p>
+<h2 id="计算机体系结构进一步发展面临的障碍"><a href="#计算机体系结构进一步发展面临的障碍" class="headerlink" title="计算机体系结构进一步发展面临的障碍"></a>计算机体系结构进一步发展面临的障碍</h2><h3 id="复杂度障碍"><a href="#复杂度障碍" class="headerlink" title="复杂度障碍"></a>复杂度障碍</h3><p>可用的晶体管更多、更小了，设计复杂度也大幅增加了，设计能力远不及复杂度，验证能力更是如此。另外，晶体管尺寸缩小到纳米级，一些电磁特性给物理设计带来了巨大的挑战，如信号串扰、参数漂移等。总是，晶体管更多了，也更“难用”了。</p>
+<p>体系结构变得复杂了，如流水线、动态调度、高速缓存、向量机、超标量、超长指令字等技术使得现代处理器结构变得十分复杂。增加处理器核或是进一步细分流水线的方式已很难带来显著的性能提升，需要探索新的结构技术在简化结构设计的前提下充分利用摩尔定律提供的晶体管，以进一步提高处理器的功能和性能。</p>
+<h3 id="主频障碍"><a href="#主频障碍" class="headerlink" title="主频障碍"></a>主频障碍</h3><p>目前的高主频处理器中，指令流水线的划分已经很细，每级流水线的延迟已经很小，难以再降低。主频难以再提高。</p>
+<h3 id="功耗障碍"><a href="#功耗障碍" class="headerlink" title="功耗障碍"></a>功耗障碍</h3><p>晶体管数目的增加以及主频的提高使得功耗问题越来越突出。以Intel放弃4GHz以上的Pentium IV项目为标值，功耗问题成为导致处理器主频难以进一步提高的直接因素。在移动计算领域，功耗更是压倒一切的指标。因此降低功耗十分重要。CPU设计从追求运算速度核性价比转为追求性能功耗比。</p>
+<p>由于晶体管的特性，0.13μm工艺以后工作电压不随着工艺的进步而降低，加上频率的提高，导致功耗密度随着集成度的增加而增加。另外纳米级工艺的漏电功耗大大增加，在65nm工艺的处理器中漏电功耗已经占了总功耗的30%。这些都对低功耗设计提出了挑战。</p>
+<h3 id="带宽障碍"><a href="#带宽障碍" class="headerlink" title="带宽障碍"></a>带宽障碍</h3><p>处理器是很快，但是处理器所需要的数据得从存储器来，存储器的速度提升很慢，而且现在的速度远低于CPU。通过Cache可以解决速度不匹配问题，但不能有效解决访存带宽不足的问题。现在采用高速总线来提高处理器的带宽，但仍有问题要解决。</p>
+<h2 id="体系结构设计的基本原则"><a href="#体系结构设计的基本原则" class="headerlink" title="体系结构设计的基本原则"></a>体系结构设计的基本原则</h2><h3 id="平衡性"><a href="#平衡性" class="headerlink" title="平衡性"></a>平衡性</h3><p>短板效应告诉我们，一个结构最终体现出的性能受限于其瓶颈部分。计算机是个复杂系统，影响性能的因素很多。例如，一台个人计算机使用起来比较卡顿，一般人会觉得主要是由于CPU性能不够，实际上真正引起性能卡顿的可能是内存带宽、硬盘或网络带宽、GPU性能，或者是CPU和GPU之间数据传输不顺，等等。</p>
+<p>通过队典型CPU指标的分析，可以看出，CPU运算速度和访存带宽差距越来越大，带宽已经成为CPU的重要瓶颈。另外，计算机程序中有些程序是不能并行化的，程序的并行加速比，最终受限于不能被并行化的串行部分。一个人一小时可以做好一顿饭，但这并不意味着60个人一起做就能用一分钟做好饭，因为做饭的过程一些因素是不可被并行化的。</p>
+<p>结构设计要统筹兼顾，抓住主要因素的同时不要忽略次要因素，否则当主要的瓶颈问题解决以后，原来不是瓶颈的次要因素可能成为瓶颈。就像修马路，在一个本来堵车的路口修座高架桥，这个路口不堵车了，但与这个路口相邻的路口可能堵起来。</p>
+<h3 id="局部性"><a href="#局部性" class="headerlink" title="局部性"></a>局部性</h3><p>局部性是计算机中普遍存在的一种现象。有些事件频繁发生，有些不怎么发生，因此要重点优化频繁发生的事件。访存局部性是一个典型。访存局部性包括时间局部性和空间局部性。时间局部性就是一个数据被访问后很有可能多次被访问。空间局部性就是一个数据被访问后，它邻近的数据很有可能被访问。Cache、TLB、预取都是利用访存局部性原理来提高性能的例子。</p>
+<h3 id="并行性"><a href="#并行性" class="headerlink" title="并行性"></a>并行性</h3><p>一般可以开发三种层次的并行性。</p>
+<p>第一个层次的并行性是指令级并行。指令级并行是20世纪最后20年体系结构提升性能的主要途径。指令级并行性可以在保持程序二进制兼容的前提下提高性能。指令级并行分为两种。一种是时间并行，即指令流水线；另一种是空间并行，即超标量。指令级并行的潜能基本上被完全挖掘，现在已经没有很大的进一步挖掘的空间。</p>
+<p>第二个层次的并行性是数据级并行，主要是单指令流多数据流（SIMD）的向量结构。最早的数据级并行出现在ENIAC上。20世纪六七十年代以Cray位代表的向量机十分流行。到Cray-4后，SIMD沉寂了一段时间，现在又开始恢复活力，而且用得越来越多。例如，x86架构的AVX多媒体指令可以用256位通路做四个64位的运算，或八个32位的运算。SIMD作为指令级并行的有效补充，在流媒体领域发挥重要的作用，尤其在专用处理器中应用得多。</p>
+<p>第三个层次的并行性是任务级并行。任务级并行大量存在于Internet应用中。任务级并行的代表是多核处理器以及多线程处理器，是目前计算机体系结构提高性能的主要方法。任务级并行的并行粒度较大，一个线程中包含几百条或者更多的指令。</p>
+<p>上述三种并行性在线代计算机中都存在。多核处理器运行线程级或进程级并行的程序，每个核采用多发射流水线结构，而且往往又SIMD向量部件。</p>
+<h3 id="虚拟化"><a href="#虚拟化" class="headerlink" title="虚拟化"></a>虚拟化</h3><p>虚拟化是体系结构设计者为用户提供一个界面友好的基本方法，虚拟化的本质就是在不好用的硬件和友好的用户界面之间架一座“桥梁”。例子有虚拟存储、多线程、虚拟机、流水线、多发射、Cache、Cache一致性协议。流水线和多发射是在维持串行编程模型的情况下提高了速度。用户感觉程序是在串行执行，但事实上可能同时有多条指令在流水线上执行，甚至处在后面的指令超前执行。Cache则让程序员拥有像Cache那么快、像内存那么大的存储空间，但是代价太大，现代处理器往往80%以上的晶体管都用在Cache上了。Cache一致性协议可以在分布式存储的情况下给程序员提供一个统一的编程空间，屏蔽掉存储器物理分布的细节，但程序员依然要自己解决并行编程的问题。</p>
 ]]></content>
       <categories>
         <category>Computer Science</category>
@@ -156,6 +138,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2020/09/13/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Algebra by Michael Artin 读书笔记 (2)</title>
     <url>/2020/09/17/alg-2/</url>
     <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>本期内容有同态和同构。</p>
@@ -181,21 +181,22 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/09/13/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>《计算机体系结构基础》 | 胡伟武著 | 笔记 3</title>
+    <url>/2021/02/24/20210224/</url>
+    <content><![CDATA[<h1 id="内容概览"><a href="#内容概览" class="headerlink" title="内容概览"></a>内容概览</h1><p>本笔记涵盖书的第3章。</p>
+<h1 id="第3章-特权指令系统"><a href="#第3章-特权指令系统" class="headerlink" title="第3章 特权指令系统"></a>第3章 特权指令系统</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在计算机系统层次结构中，应用层在操作系统层之上，只能看到和使用指令系统的一个子集，即指令系统的用户态部分。每个应用程序都有自己的寄存器、内存空间以及可执行的指令。现代计算机的指令系统在用户态子集之外还定义了特权太部分，我们称之特权指令系统。特权指令系统使得计算机变得更好用、更安全。不同指令系统的特权态部分差别较大，但就其机制而言，可以分为以下几类。</p>
+<h3 id="运行模式"><a href="#运行模式" class="headerlink" title="运行模式"></a>运行模式</h3><p>现代计算机的操作系统都实现了保护模式，设计为用户态和核心态两种运行模式。应用运行在用户态模式下，操作系统运行在核心态模式下。刚开机时，CPU初始为核心态模式，执行引导程序加载操作系统。操作系统做完一系列初始化后，控制CPU切换到用户态去执行应用程序。应用程序执行过程中，如果出现在用户态无法处理的事件，则CPU会通过异常或中断回到核心态，执行操作系统提供的服务程序。操作系统完成处理后再控制CPU返回到用户态，继续运行原来的应用程序或者调度另一个应用程序。</p>
+<h3 id="虚拟存储管理"><a href="#虚拟存储管理" class="headerlink" title="虚拟存储管理"></a>虚拟存储管理</h3><p>虚拟存储让软件运行在逻辑地址上，与真正访问的物理地址隔离。虚实地址的转换有查表转换和直接映射两种方式。应用程序主要使用查表转换的方式，不同的进程有自己独立的虚地址空间。直接映射的方式与使用物理地址差别不大，其主要目的是留给操作系统使用，因为负责虚拟存储管理的代码本身不能运行在被管理的虚地址空间。用户态应用程序无法使用直接映射的方式。</p>
+<h3 id="异常与中断处理"><a href="#异常与中断处理" class="headerlink" title="异常与中断处理"></a>异常与中断处理</h3><p>这是一种打断正常的软件执行流，切换到专门的服务程序的机制。这种机制在各种运行模式的转换中起到关键的纽带作用。</p>
+<h3 id="控制寄存器"><a href="#控制寄存器" class="headerlink" title="控制寄存器"></a>控制寄存器</h3><p>控制寄存器位于一个独立的地址空间，是支撑前面3种机制的具体实现。</p>
+<p>（To be continued）</p>
 ]]></content>
+      <categories>
+        <category>Computer Science</category>
+        <category>Computer Architecture</category>
+      </categories>
+      <tags>
+        <tag>Notes</tag>
+      </tags>
   </entry>
 </search>

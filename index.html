@@ -331,7 +331,7 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-02-24 19:46:00 / Modified: 20:03:20" itemprop="dateCreated datePublished" datetime="2021-02-24T19:46:00+08:00">2021-02-24</time>
+              <time title="Created: 2021-02-24 19:46:00 / Modified: 20:05:31" itemprop="dateCreated datePublished" datetime="2021-02-24T19:46:00+08:00">2021-02-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -364,6 +364,7 @@ mjx-container[display="true"] + br {
 <h3 id="虚拟存储管理"><a href="#虚拟存储管理" class="headerlink" title="虚拟存储管理"></a>虚拟存储管理</h3><p>虚拟存储让软件运行在逻辑地址上，与真正访问的物理地址隔离。虚实地址的转换有查表转换和直接映射两种方式。应用程序主要使用查表转换的方式，不同的进程有自己独立的虚地址空间。直接映射的方式与使用物理地址差别不大，其主要目的是留给操作系统使用，因为负责虚拟存储管理的代码本身不能运行在被管理的虚地址空间。用户态应用程序无法使用直接映射的方式。</p>
 <h3 id="异常与中断处理"><a href="#异常与中断处理" class="headerlink" title="异常与中断处理"></a>异常与中断处理</h3><p>这是一种打断正常的软件执行流，切换到专门的服务程序的机制。这种机制在各种运行模式的转换中起到关键的纽带作用。</p>
 <h3 id="控制寄存器"><a href="#控制寄存器" class="headerlink" title="控制寄存器"></a>控制寄存器</h3><p>控制寄存器位于一个独立的地址空间，是支撑前面3种机制的具体实现。</p>
+<p>（To be continued）</p>
 
       
     </div>
@@ -414,7 +415,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-24 19:46:43" itemprop="dateModified" datetime="2021-02-24T19:46:43+08:00">2021-02-24</time>
+                <time title="Modified: 2021-02-24 20:05:19" itemprop="dateModified" datetime="2021-02-24T20:05:19+08:00">2021-02-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -456,7 +457,7 @@ mjx-container[display="true"] + br {
 <p>现代操作系统包含保护模式，将程序分为两个权限等级：用户态和核心态。核心态具有最高权限，可以执行所有指令、访问任意空间；在用户态下，程序只能访问受限的内存空间，不允许访问外围设备。用户态程序需要使用外围设备时，需要通过系统调用提出申请，由操作系统在核心态下完成访问。保护模式需要硬件支持，如x86架构包含Ring0~Ring3四个权限级别，MIPS处理器定义了user/kernel两个权限级别。</p>
 <p>为了方便软硬件调试，许多处理器增加了调试模式和接口，如ARM的JTAG、MIPS的EJTAG。</p>
 <p>虚拟化技术使得一台物理主机可以支撑多台虚拟机，运行各自的系统。虚拟机不绑定底层硬件，可看作一个软件进程，因而部署起来非常灵活。Intel和AMD分别由哦硬件辅助虚拟机的扩展VT和SVM。MIPS引入了客户模式。</p>
-<h1 id="注"><a href="#注" class="headerlink" title="注"></a>注</h1><p>书的内容远比我的笔记多，但是我懒<span class="github-emoji" alias="sleepy" style fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62a.png?v8">😪</span>，没做笔记，所以就只有这一节了。</p>
+<h1 id="注"><a href="#注" class="headerlink" title="注"></a>注</h1><p>书的内容远比我的笔记多，但是我懒<span class="github-emoji" alias="sleepy" style fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62a.png?v8">😪</span>，没做笔记，所以就只有这一节了。后面写文章也差不多，不再赘述。</p>
 
       
     </div>

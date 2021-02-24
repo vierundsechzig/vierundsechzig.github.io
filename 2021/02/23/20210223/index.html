@@ -28,7 +28,7 @@
 <meta property="og:description" content="内容概览本笔记涵盖书的第2章。 第2章 指令系统结构指令系统发展过程指令集的演变指令集可分为CISC、RISC和VLIW指令集三种。 早期的CPU都采用CISC结构，如IBM的System360、Intel的8080和80806系列、Motorola的68000系列等。这与当时的时代特点有关，早期处理器设备昂贵且处理速度慢，设计者不得不加入越来越多的复杂指令来提高执行速度，部分复杂指令甚至可与高级">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-02-23T11:52:39.000Z">
-<meta property="article:modified_time" content="2021-02-24T11:46:43.575Z">
+<meta property="article:modified_time" content="2021-02-24T12:05:19.464Z">
 <meta property="article:author" content="Nicolas Liu">
 <meta property="article:tag" content="Notes">
 <meta name="twitter:card" content="summary">
@@ -342,7 +342,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-24 19:46:43" itemprop="dateModified" datetime="2021-02-24T19:46:43+08:00">2021-02-24</time>
+                <time title="Modified: 2021-02-24 20:05:19" itemprop="dateModified" datetime="2021-02-24T20:05:19+08:00">2021-02-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -384,7 +384,7 @@ mjx-container[display="true"] + br {
 <p>现代操作系统包含保护模式，将程序分为两个权限等级：用户态和核心态。核心态具有最高权限，可以执行所有指令、访问任意空间；在用户态下，程序只能访问受限的内存空间，不允许访问外围设备。用户态程序需要使用外围设备时，需要通过系统调用提出申请，由操作系统在核心态下完成访问。保护模式需要硬件支持，如x86架构包含Ring0~Ring3四个权限级别，MIPS处理器定义了user/kernel两个权限级别。</p>
 <p>为了方便软硬件调试，许多处理器增加了调试模式和接口，如ARM的JTAG、MIPS的EJTAG。</p>
 <p>虚拟化技术使得一台物理主机可以支撑多台虚拟机，运行各自的系统。虚拟机不绑定底层硬件，可看作一个软件进程，因而部署起来非常灵活。Intel和AMD分别由哦硬件辅助虚拟机的扩展VT和SVM。MIPS引入了客户模式。</p>
-<h1 id="注"><a href="#注" class="headerlink" title="注"></a>注</h1><p>书的内容远比我的笔记多，但是我懒<span class="github-emoji" alias="sleepy" style fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62a.png?v8">😪</span>，没做笔记，所以就只有这一节了。</p>
+<h1 id="注"><a href="#注" class="headerlink" title="注"></a>注</h1><p>书的内容远比我的笔记多，但是我懒<span class="github-emoji" alias="sleepy" style fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62a.png?v8">😪</span>，没做笔记，所以就只有这一节了。后面写文章也差不多，不再赘述。</p>
 
     </div>
 
